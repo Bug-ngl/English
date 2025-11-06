@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bug English Quiz — Advanced</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="topbar">
+      <h1 class="brand">Bug English Quiz</h1>
+      <div class="controls">
+        <div class="timer" id="timer" aria-label="Quiz timer" style="display:none">⏱ 00:00</div>
+        <button id="toggle-theme" aria-label="Toggle theme">🌙</button>
+        <a class="admin-link" href="admin.html" style="display:none">Admin</a>
+      </div>
+    </nav>
+
+    <main class="container" id="app">
+      <section class="panel quiz-panel" aria-labelledby="quiz-title">
+        <header class="panel-head">
+          <h2 id="quiz-title">Gôd lôk</h2>
+        </header>
+
+        <section class="progress-row" aria-hidden="false">
+          <div class="progress-text" id="progress-text">Question 1 / 5</div>
+          <div class="progress">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </section>
+
+        <section id="question-area" class="question-area" tabindex="0" aria-live="polite">
+          <h3 id="question">Loading…</h3>
+          <div class="meta">
+            <span id="difficulty"></span>
+          </div>
+          <ul id="answers" class="answers" role="list"></ul>
+        </section>
+
+        <section class="actions">
+          <button id="prev-btn" class="btn ghost" disabled>Previous</button>
+          <button id="skip-btn" class="btn ghost">Skip</button>
+          <button id="next-btn" class="btn primary" disabled>Next</button>
+        </section>
+
+        <section id="feedback" class="feedback" aria-live="assertive"></section>
+      </section>
+
+      <aside class="panel stats-panel" aria-labelledby="stats-title">
+        <h3 id="stats-title">Session Summary</h3>
+        <div class="stat">
+          <div class="stat-label">Score</div>
+          <div id="score" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Correct</div>
+          <div id="correct" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Wrong</div>
+          <div id="wrong" class="stat-value">0</div>
+        </div>
+        <div class="panel-block">
+          <button id="restart-btn" class="btn alt">Restart</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer"></footer>
+  </div>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script>
+    // Simple timer logic (you can move this to main.js if you prefer)
+    let seconds = 0;
+    const timerEl = document.getElementById("timer");
+    setInterval(() => {
+      seconds++;
+      const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const secs = String(seconds % 60).padStart(2, "0");
+      timerEl.textContent = `⏱ ${mins}:${secs}`;
+    }, 1000);
+  </script>
+</body>
+</html>

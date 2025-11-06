@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Quiz Admin — Edit Questions</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="topbar">
+      <h1 class="brand">Quiz Admin</h1>
+      <a href="index.html" class="back">← Back to Quiz</a>
+    </header>
+
+    <main class="container admin-container">
+      <section class="panel">
+        <h2>Edit / Add Questions</h2>
+        <p>Use the editor below to edit questions. Save to localStorage or download a JSON file.</p>
+
+        <textarea id="editor" class="editor" spellcheck="false"></textarea>
+
+        <div class="panel-block">
+          <button id="load-sample" class="btn">Load Sample</button>
+          <button id="save-local" class="btn">Save to Local</button>
+          <button id="download" class="btn primary">Download JSON</button>
+        </div>
+
+        <div class="hint">JSON structure: <code>[{ "question": "...", "answers": ["a","b","c","d"], "correct": 0, "difficulty":"easy" }]</code></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>
